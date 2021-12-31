@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width,initial-scale=1'>
+        <title>  </title>
+
+        <!-- Stylesheets -->
+        <link rel='stylesheet' type='text/css' href='/style.css'>
+        <!-- jQuery -->
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+        <!-- Materialize -->
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
+        <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+        <link rel='preconnect' href='https://fonts.googleapis.com'>
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+        <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;600&display=swap' rel='stylesheet'>
+        <!-- Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    </head>
+    <body class='column justify-center align-center w100 m0'>
+
+        <main class="w100 vh100 row">
+            <section class='column justify-center h100' style='width: 50%;'>
+                    <img style='width: 100%;' src='https://i.pinimg.com/originals/eb/22/3f/eb223f5ce629d66ae9a02d5afeace013.gif'>
+                <input class='text-center' type='text' id='name' placeholder='Nome' style='letter-spacing: 1rem; margin-top: -2rem; margin-left: 0.5rem;' value='cezinha'>
+            </section>
+            
+            <section class='column justify-center align-center w50'>
+                <div class='column w50'>
+                    <div class='row w100'>
+                        <div class='stat w50 mx025'>
+                            <i class='material-icons'>brightness_7</i>
+                            <div id='temp'> 21ºC </div>
+                        </div>
+                        <div class='stat w50 mx025'>
+                            <i class='material-icons'>filter_drama</i>
+                            <div id='air'> 50% </div>
+                        </div>
+                    </div>
+                    <div class='row w100 my05'>
+                        <div class='stat w100 mx025'>
+                            <i class='material-icons'>all_inclusive</i>
+                            <div id='lifetime'> 200 dias </div>
+                        </div>
+                    </div>
+                    <div class='row w100'>
+                        <div class='stat w50 mx025'>
+                            <i class='material-icons'>opacity</i>
+                            <div id='soil'> 50% </div>
+                        </div>
+                        <div class='stat w50 mx025'>
+                            <i class='material-icons'>local_drink</i>
+                            <div id='water'> 50% </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <main class="w100 vh100 column justify-center align-center">
+            <div class="row w100 align-center justify-around p3" style="height: 20%;">
+                <!-- <div class="input-field col s12" style="width: fit-content;">
+                    <select multiple>
+                      <option value="1">Temperatura</option>
+                      <option value="2">Um. Ar</option>
+                      <option value="3">Um. Solo</option>
+                    </select>
+                    <label>Sensores</label>
+                </div> -->
+
+                <div class="input-field col s12" style="width: fit-content;">
+                    <select>
+                        <option value="2019">2019</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
+                    <label>Ano</label>
+                </div>
+
+                <div class="input-field col s12" style="width: fit-content;">
+                    <select>
+                        <option value="0">Tudo</option>
+                        <option value="1">Janeiro</option>
+                        <option value="2">Fevereiro</option>
+                        <option value="3">Março</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Maio</option>
+                        <option value="6">Junho</option>
+                        <option value="7">Julho</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Setembro</option>
+                        <option value="10">Outubro</option>
+                        <option value="11">Novembro</option>
+                        <option value="12">Dezembro</option>
+                    </select>
+                    <label>Mês</label>
+                </div>
+
+                <div class="input-field col s12" style="width: fit-content;">
+                    <select>
+                        <option value="0">Tudo</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                    <label>Dia</label>
+                </div>
+            </div>
+            <div style="width: 80%;">
+                <canvas id="chart"></canvas>
+            </div>
+        </main>
+        
+        <script src="data.js"></script>
+        <script src="graph.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('select').formSelect();
+            });
+        </script>
+
+    </body>
+</html>

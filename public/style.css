@@ -1,0 +1,85 @@
+body {
+    background-color: #f1f9f5;
+    font-family: 'Montserrat', sans-serif;
+}
+input {
+    border: 0 !important;
+    box-shadow: none !important; 
+}
+input#name {
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #7cd6c1;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-around {
+    justify-content: space-around;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.align-center {
+    align-items: center;
+}
+.text-center {
+    text-align: center;
+}
+.h100 {
+    height: 100%;
+}
+.vh100 {
+    height: 100vh;
+}
+.vw100 {
+    width: 100vw;
+}
+.w100 {
+    width: 100%;
+}
+.w50 {
+    width: 50%;
+}
+.m0 {
+    margin: 0;
+}
+div {
+    margin: 0 !important;
+}
+.my05 {
+    margin: 0.5rem 0 0.5rem 0 !important;
+}
+.mx05 {
+    margin: 0 0.5rem 0 0.5rem !important;
+}
+.mx025 {
+    margin: 0 0.25rem 0 0.25rem !important;
+}
+.p3 {
+    padding: 3rem;
+}
+.stat {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d3d3d3;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    color: #aaaaaa;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5rem 0 0.5rem;
+}
+.stat > i {
+    font-size: 2.5rem;
+}
