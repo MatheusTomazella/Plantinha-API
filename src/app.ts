@@ -7,6 +7,7 @@ import path       from "path"       ;
 import bodyParser from "body-parser";
 
 import plantRouter from "./routes/plant";
+import graphRouter from "./routes/graph";
 
 class App {
     public app : Application;
@@ -28,6 +29,7 @@ class App {
         } );
         
         this.app.use( plantRouter );
+        this.app.use( graphRouter );
         
         this.app.get( '/:id', ( request : Request, response : Response ) => {
             response.sendFile( path.resolve( "public/index.html" ) );

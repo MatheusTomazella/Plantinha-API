@@ -2,9 +2,12 @@ import PlantData from "../typings/PlantData";
 import { Model, DataTypes } from "sequelize";
 
 import database from "./Database";
+import Graph, { GraphDataTypes } from "./Graph";
 
 export default class Plant extends Model {
-    private timestamp : number | undefined;
+    public  id          : number | undefined;
+    public  name        : string | undefined;
+    private timestamp   : number | undefined;
 
     private temperature   : number = 0;
     private airHumidity   : number = 0;
@@ -32,9 +35,10 @@ export default class Plant extends Model {
         this.waterLevel    = data.waterLevel;
     }
 
-    public addPlot ( ) : void {
-        // TODO: Implement
-        return;
+    public async addPoint ( ) : Promise<void> {
+        Graph.addPoint( this.id as number, GraphDataTypes.TEMPERATURE, this.temperature );
+        Graph.addPoint( this.id as number, GraphDataTypes.AIR_HUMIDITY, this.airHumidity );
+        Graph.addPoint( this.id as number, GraphDataTypes.SOIL_HUMIDITY, this.soilHumidity );
     }
 };
 

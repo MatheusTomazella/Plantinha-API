@@ -22,13 +22,18 @@
     </head>
     <body class='column justify-center align-center w100 m0'>
 
+        <!-- Real Time Data -->
         <main class="w100 vh100 row">
             <section class='column justify-center h100' style='width: 50%;'>
-                    <img style='width: 100%;' src='https://i.pinimg.com/originals/eb/22/3f/eb223f5ce629d66ae9a02d5afeace013.gif'>
-                <input class='text-center' type='text' id='name' placeholder='Nome' style='letter-spacing: 1rem; margin-top: -2rem; margin-left: 0.5rem;' value='cezinha'>
+                <img style='width: 100%;' src='https://i.pinimg.com/originals/eb/22/3f/eb223f5ce629d66ae9a02d5afeace013.gif'>
+                <input class='text-center' type='text' id='name' placeholder='Nome' style='letter-spacing: 1rem; margin-top: -2rem; margin-left: 0.5rem;' value='????'>
             </section>
             
             <section class='column justify-center align-center w50'>
+                <button data-target="configModal" class="config-modal modal-trigger">
+                    <i class='material-icons'>settings</i>
+                </button>
+
                 <div class='column w50'>
                     <div class='row w100'>
                         <div class='stat w50 mx025'>
@@ -60,28 +65,19 @@
             </section>
         </main>
 
-        <main class="w100 vh100 column justify-center align-center">
-            <div class="row w100 align-center justify-around p3" style="height: 20%;">
-                <!-- <div class="input-field col s12" style="width: fit-content;">
-                    <select multiple>
-                      <option value="1">Temperatura</option>
-                      <option value="2">Um. Ar</option>
-                      <option value="3">Um. Solo</option>
-                    </select>
-                    <label>Sensores</label>
-                </div> -->
+        <!-- Chart -->
+        <main class="w100 vh100 column justify-center align-center" style="padding-bottom: 1rem;">
+            <div class="row w100 align-center justify-center p3" style="height: 20%;">
 
-                <div class="input-field col s12" style="width: fit-content;">
-                    <select>
-                        <option value="2019">2019</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
+                <div class="input-field col s12 p3 mx3" style="width: fit-content; margin: 0 5rem 0 5rem;">
+                    <select id="year" onchange="fetchAndUpdateGraph()">
+                        // Years
                     </select>
                     <label>Ano</label>
                 </div>
 
-                <div class="input-field col s12" style="width: fit-content;">
-                    <select>
+                <div class="input-field col s12 mx3" style="width: fit-content; margin: 0 5rem 0 5rem;">
+                    <select id="month" onchange="fetchAndUpdateGraph()">
                         <option value="0">Tudo</option>
                         <option value="1">Janeiro</option>
                         <option value="2">Fevereiro</option>
@@ -99,8 +95,8 @@
                     <label>Mês</label>
                 </div>
 
-                <div class="input-field col s12" style="width: fit-content;">
-                    <select>
+                <div class="input-field col s12 p3 mx3" style="width: fit-content;">
+                    <select id="day" onchange="fetchAndUpdateGraph()">
                         <option value="0">Tudo</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -136,20 +132,44 @@
                     </select>
                     <label>Dia</label>
                 </div>
+
+                <div class="refreshButton p3 mx3" onclick="fetchAndUpdateGraph()">
+                    <i class='material-icons'>refresh</i>
+                </div>
+
             </div>
             <div style="width: 80%;">
                 <canvas id="chart"></canvas>
             </div>
         </main>
-        
-        <script src="data.js"></script>
-        <script src="graph.js"></script>
 
+        <!-- Config Modal -->
+        <div id="configModal" class="modal" style="margin: auto;">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+
+        <script>
+            for ( let y = 2022; y <= new Date().getFullYear(); y++ )
+                document.getElementById('year').innerHTML += `<option value="${y}">${y}</option>`;
+        </script>
+        
         <script>
             $(document).ready(function(){
                 $('select').formSelect();
+                $('.modal').modal();
+                fetchAndUpdateGraph();
             });
         </script>
+
+        <script src="data.js"></script>
+        <script src="graph.js"></script>
 
     </body>
 </html>

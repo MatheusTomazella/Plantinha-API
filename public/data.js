@@ -1,12 +1,26 @@
+const APIurl = "http://localhost:3306";
+
+const id = parseInt( window.location.pathname.slice(1) );
+
 function getData ( ) {
     return new Promise( ( resolve, reject ) => {
-        resolve( {
-            temperature: Math.floor( Math.random() * 40 ),
-            airHumidity: Math.floor( Math.random() * 100 ),
-            soilHumidity: Math.floor( Math.random() * 100 ),
-            lifeTime: Math.floor( Math.random() * 10000 ),
-            waterLevel: Math.floor( Math.random() * 100 ),
-        } );
+        $.ajax({
+            type: "GET",
+            url: APIurl + `/plant/${id}/data`,
+            success: function (response) {
+                resolve( response );
+            },
+            error: ( error ) => {
+                console.error( error );
+                resolve( {
+                    temperature: '??',
+                    airHumidity: '??',
+                    soilHumidity: '??',
+                    lifetime: '??',
+                    waterLevel: '??'
+                } );
+            }
+        });
     } )
 }
 function updateData ( ) {
@@ -15,7 +29,7 @@ function updateData ( ) {
         document.getElementById('temp').innerHTML = data.temperature + 'ºC';
         document.getElementById('air').innerHTML = data.airHumidity + '%';
         document.getElementById('soil').innerHTML = data.soilHumidity + '%';
-        document.getElementById('lifetime').innerHTML = data.lifeTime + ' dias';
+        document.getElementById('lifetime').innerHTML = data.lifetime + ' dias';
         document.getElementById('water').innerHTML = data.waterLevel + '%';
     } )
     .catch( defaultErrorHandler );
@@ -23,7 +37,17 @@ function updateData ( ) {
 
 function getName ( ) {
     return new Promise( ( resolve, reject ) => {
-        resolve( "Plantinha" );
+        $.ajax({
+            type: "GET",
+            url: APIurl + `/plant/${id}/name`,
+            success: function (response) {
+                resolve( response );
+            },
+            error: ( error ) => {
+                console.error( error );
+                resolve( '????' );
+            }
+        });
     } )
 }
 function updateName ( ) {

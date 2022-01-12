@@ -50,3 +50,17 @@ export function error_FAILED_TO_GET_DATA ( error : any ) : RequestError {
         error: error
     }
 }
+
+export function error_FAILED_TO_ADD_POINT ( error : any ) : RequestError {
+    return {
+        code: "FAILED_TO_ADD_POINT",
+        error: error
+    }
+}
+
+export function error_FAILED_TO_GET_GRAPH_POINTS ( error : any ) : RequestError {
+    return {
+        code: "FAILED_TO_GET_GRAPH_POINTS",
+        error: error
+    }
+}

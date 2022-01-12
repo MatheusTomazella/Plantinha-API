@@ -1,5 +1,6 @@
 body {
     background-color: #f1f9f5;
+    color: #aaaaaa;
     font-family: 'Montserrat', sans-serif;
 }
 input {
@@ -65,6 +66,9 @@ div {
 .mx025 {
     margin: 0 0.25rem 0 0.25rem !important;
 }
+.mx3 {
+    margin: 0 3rem 0 3rem !important;
+}
 .p3 {
     padding: 3rem;
 }
@@ -82,4 +86,47 @@ div {
 }
 .stat > i {
     font-size: 2.5rem;
+}
+
+.refreshButton {
+    cursor: pointer;
+    padding: 1rem 1.2rem;
+    border-radius: 50%;
+}
+.refreshButton:hover {
+    transition-duration: 100ms;
+    background-color: #d3d3d3;
+}
+
+.config-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: #aaaaaa;
+    margin: 1rem;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+.config-modal:hover {
+    transition-duration: 100ms;
+    background-color: #d3d3d3;
+}
+.config-modal:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+div.modal {
+    background-color: #f1f9f5;
+    margin: auto !important;
+}
+div.modal > div {
+    background-color: #f1f9f5 !important;
 }

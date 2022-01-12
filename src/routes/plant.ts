@@ -33,6 +33,24 @@ router.get( "/plant/:id", async ( request : Request, response : Response ) => {
     response.status( 200 ).json( (plant as Plant).toJSON() );
 } );
 
+// Get plant name
+router.get( "/plant/:id/name", async ( request : Request, response : Response ) => {
+    const id : number = parseInt( request.params.id );
+    if ( !activePlants[id] ) {
+        const plant = await Plant.findByPk( id )
+        .catch( error => {
+            response.status(404).json( error_OBJECT_NOT_FOUND( error ) );
+            return;
+        } );
+        if ( !plant ) {
+            response.status( 404 ).json( error_OBJECT_NOT_FOUND( "Plant not found" ) );
+        }
+        response.status( 200 ).send( (plant as Plant).name as string );
+        return;
+    }
+    response.status( 200 ).send( activePlants[id].name as string );
+} );
+
 // Create a plant
 router.post( "/plant", async ( request : any, response : Response ) => {
     const plant = await Plant.create( {
@@ -72,7 +90,7 @@ router.delete( "/plant", ( request : any, response : Response ) => {
 /* Data */
 
 // Get data for a plant
-router.get( "/plant/data/:id", ( request : Request, response : Response ) => {
+router.get( "/plant/:id/data", ( request : Request, response : Response ) => {
     const id : number = parseInt( request.params.id );
     const plant = activePlants[id];
     if ( !plant ) {
@@ -82,8 +100,19 @@ router.get( "/plant/data/:id", ( request : Request, response : Response ) => {
     response.status( 200 ).json( plant.getData() );
 } );
 
+// Get lifetime
+router.get( "/plant/:id/data/lifetime", ( request : Request, response : Response ) => { 
+    const id : number = parseInt( request.params.id );
+    const plant = activePlants[id];
+    if ( !plant ) {
+        response.status( 404 ).json( error_INACTIVE_PLANT( "No data for this plant" ) );
+        return;
+    }
+    response.status( 200 ).send( plant.getLifetime().toString() ); 
+} );
+
 // Set data for a plant
-router.post( "/plant/data/:id", async ( request : any, response : Response ) => {
+router.post( "/plant/:id/data", async ( request : any, response : Response ) => {
     const id = parseInt( request.params.id );
     const plant = await getOrInsertToCache( id )
         .catch( error => { 
