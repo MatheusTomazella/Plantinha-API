@@ -1,4 +1,4 @@
-const APIurl = "http://localhost:3306";
+const APIurl = "https://planta.vercel.app";
 
 const id = parseInt( window.location.pathname.slice(1) );
 
