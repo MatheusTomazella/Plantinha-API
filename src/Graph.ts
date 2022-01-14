@@ -16,6 +16,8 @@ export default class Graph extends Model {
         const day     = date.getDate();
         const time    = date.toLocaleTimeString();
 
+        console.log( date );
+
         Graph.create( {
             plant,
             year,

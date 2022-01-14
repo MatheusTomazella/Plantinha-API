@@ -64,3 +64,24 @@ export function error_FAILED_TO_GET_GRAPH_POINTS ( error : any ) : RequestError 
         error: error
     }
 }
+
+export function error_MISSING_PARAMETER ( error : any ) : RequestError {
+    return {
+        code: "MISSING_PARAMETER",
+        error: error
+    }
+}
+
+export function error_FAILED_TO_CREATE_OR_UPDATE_CONFIG ( error : any ) : RequestError {
+    return {
+        code: "FAILED_TO_CREATE_OR_UPDATE_CONFIG",
+        error: error
+    }
+}
+
+export function error_FAILED_TO_GET_CONFIG ( error : any ) : RequestError {
+    return {
+        code: "FAILED_TO_GET_CONFIG",
+        error: error
+    }
+}

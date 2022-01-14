@@ -130,3 +130,24 @@ div.modal {
 div.modal > div {
     background-color: #f1f9f5 !important;
 }
+
+div.config {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 1rem;
+}
+div.config > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+div.config > div > input {
+    text-align: right;
+    margin-right: 0.5rem !important;
+}
+div.config > div > div.input-field {
+    width: 7rem !important;
+}

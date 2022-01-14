@@ -6,8 +6,9 @@ import express, {
 import path       from "path"       ;
 import bodyParser from "body-parser";
 
-import plantRouter from "./routes/plant";
-import graphRouter from "./routes/graph";
+import plantRouter  from "./routes/plant";
+import graphRouter  from "./routes/graph";
+import configRouter from "./routes/config";
 
 class App {
     public app : Application;
@@ -28,8 +29,9 @@ class App {
             response.status(200).json( { connection: true } );
         } );
         
-        this.app.use( plantRouter );
-        this.app.use( graphRouter );
+        this.app.use( plantRouter  );
+        this.app.use( graphRouter  );
+        this.app.use( configRouter );
         
         this.app.get( '/:id', ( request : Request, response : Response ) => {
             response.sendFile( path.resolve( "public/index.html" ) );

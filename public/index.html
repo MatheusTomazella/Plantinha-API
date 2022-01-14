@@ -30,7 +30,8 @@
             </section>
             
             <section class='column justify-center align-center w50'>
-                <button data-target="configModal" class="config-modal modal-trigger">
+                <button data-target="configModal" class="config-modal modal-trigger"
+                    onclick="updateConfigValues()">
                     <i class='material-icons'>settings</i>
                 </button>
 
@@ -144,14 +145,72 @@
         </main>
 
         <!-- Config Modal -->
-        <div id="configModal" class="modal" style="margin: auto;">
-            <div class="modal-content">
-                <h4>Modal Header</h4>
-                <p>A bunch of text</p>
+        <div id="configModal" class="modal" style="margin: auto; height: 80%;">
+            <div class="modal-content w100">
+                <h4 style="margin-bottom: 2rem;">Configurações</h4>
+
+                <div class="config">
+                    <label> PUMP_CHECK_INTERVAL_MS: </label>
+                    <div>
+                        <input type="text" id="PUMP_CHECK_INTERVAL_MS">
+                        <div class="input-field">
+                            <select id="PUMP_CHECK_INTERVAL_MSunit">
+                                <option value="1"       >ms  </option>
+                                <option value="1000"    >s   </option>
+                                <option value="60000"   >min </option>
+                                <option value="3600000" >h   </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config">
+                    <label> PUMP_RUN_TIME_MS: </label>
+                    <div>
+                        <input type="text" id="PUMP_RUN_TIME_MS">
+                        <div class="input-field">
+                            <select id="PUMP_RUN_TIME_MSunit">
+                                <option value="1"       >ms  </option>
+                                <option value="1000"    >s   </option>
+                                <option value="60000"   >min </option>
+                                <option value="3600000" >h   </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config">
+                    <label> DRY_THRESHOLD_PERCENTAGE: </label>
+                    <div>
+                        <input type="text" id="DRY_THRESHOLD_PERCENTAGE">
+                        <div class="input-field">
+                            <select id="DRY_THRESHOLD_PERCENTAGEunit">
+                                <option value="1">%  </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config">
+                    <label> GRAPH_PLOT_INTERVAL_MS: </label>
+                    <div>
+                        <input type="text" id="GRAPH_PLOT_INTERVAL_MS">
+                        <div class="input-field">
+                            <select id="GRAPH_PLOT_INTERVAL_MSunit">
+                                <option value="1"       >ms  </option>
+                                <option value="1000"    >s   </option>
+                                <option value="60000"   >min </option>
+                                <option value="3600000" >h   </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="modal-footer">
-                
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <div class="modal-footer" style="position: absolute; bottom: 0;">
+                <a class="modal-close waves-effect waves-red btn-flat">Cancelar</a>
+                <a class="modal-close waves-effect waves-green btn-flat"
+                    onclick="postConfig()">Salvar</a>
             </div>
         </div>
 
@@ -170,6 +229,7 @@
 
         <script src="data.js"></script>
         <script src="graph.js"></script>
+        <script src="config.js"></script>
 
     </body>
 </html>
